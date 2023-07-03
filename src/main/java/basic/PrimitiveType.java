@@ -32,7 +32,7 @@ public class PrimitiveType {
         System.out.println("myString = " + myString);
     }
 
-    public static void printCompoundAssignOper() {
+    public static void printCompoundAssignOperator() {
 
         /**
          * 복합 연산자에는 자료형으로 변환하는 타입 캐스팅이 숨겨져 있다
