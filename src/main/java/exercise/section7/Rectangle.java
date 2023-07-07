@@ -1,4 +1,4 @@
-package exercise.Section7;
+package exercise.section7;
 
 public class Rectangle {
 

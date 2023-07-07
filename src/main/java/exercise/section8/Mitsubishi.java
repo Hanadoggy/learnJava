@@ -1,4 +1,4 @@
-package exercise.Section8;
+package exercise.section8;
 
 public class Mitsubishi extends Car {
     public Mitsubishi(int cylinders, String name) {
