@@ -1,9 +1,4 @@
-import basic.Array;
-import basic.Autoboxing;
-import basic.MoreLists;
-import basic.MyIterator;
-import basic.interfaces.*;
-import exercise.section11.*;
+import section7_inheritance.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
