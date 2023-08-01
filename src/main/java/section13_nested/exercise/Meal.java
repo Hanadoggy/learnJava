@@ -1,4 +1,4 @@
-package basic.nested;
+package section13_nested.exercise;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +24,15 @@ public class Meal {
         side = new Item("fries", "side", 2.0);
     }
 
-    // nested class 에서 선언한  PRIVATE  static method 또한 upper class 에서 접근 가능
     public double getTotal() {
         double total = burger.getPrice() + drink.price + side.price;
         return Item.getPrice(total, conversionRate);
     }
 
+
     @Override
     public String toString() {
-        return "%s%n%s%n%s%n%26s$%.2f%n".formatted(burger, drink, side, "Total Due: ", getTotal());
+        return "%s%n%s%n%s%n%26s$%.2f".formatted(burger, drink, side, "Total Due: ", getTotal());
     }
 
     public void addToppings(String... selectedToppings) {
@@ -47,7 +47,6 @@ public class Meal {
 
         public Item(String name, String type) {
             this(name, type, type.equals("burger") ? base : 0);
-            // inner class는 upper class의 private field에도 접근 가능
         }
 
         public Item(String name, String type, double price) {
@@ -56,14 +55,13 @@ public class Meal {
             this.price = price;
         }
 
+        private static double getPrice(double price, double rate) {
+            return price * rate;
+        }
+
         @Override
         public String toString() {
             return "%10s%15s $%.2f".formatted(type, name, getPrice(price, conversionRate));
-        }
-
-        // Java 16 이후부터 지원 - nested class 에서 static method
-        private static double getPrice(double price, double rate) {
-            return price * rate;
         }
     }
 
@@ -72,7 +70,6 @@ public class Meal {
         private enum Extra {
             AVOCADO, BACON, CHEESE, KETCHUP, MAYO, MUSTARD, PICKLES;
             private double getPrice() {
-
                 return switch (this) {
                     case AVOCADO -> 1.0;
                     case BACON, CHEESE -> 1.5;
@@ -121,4 +118,6 @@ public class Meal {
             return itemized.toString();
         }
     }
+
+
 }

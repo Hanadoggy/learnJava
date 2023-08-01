@@ -1,15 +1,11 @@
-package basic.nested;
+package section13_nested;
 
 import java.util.Comparator;
 
 public class Employee {
 
-    /**
-     * Nested class  -  static nested type
-     * Comparator를 별도의 클래스로 만들지 않고 내부의 static class로 선언하여 사용함으로써
-     * 캡슐화를 지켜 내부 field를 보호할 수 있음
-     */
-    public static class EmployeeComparator <T extends  Employee> implements Comparator<Employee> {
+    // static nested class (static, in class block)
+    public static class EmployeeComparator <T extends Employee> implements Comparator<Employee> {
 
         private String sortType;
 

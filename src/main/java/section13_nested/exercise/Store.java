@@ -1,4 +1,4 @@
-package basic.nested;
+package section13_nested.exercise;
 
 public class Store {
 
@@ -8,10 +8,9 @@ public class Store {
         regularMeal.addToppings("Ketchup", "Mayo", "Bacon", "Cheddar");
         System.out.println(regularMeal);
 
-        // 환율 하드코딩
         Meal USRegularMeal = new Meal(0.68);
         System.out.println(USRegularMeal);
 
-    }
 
+    }
 }
