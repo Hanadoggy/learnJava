@@ -81,10 +81,10 @@ public record Card(Suit suit, String face, int rank) {
     @Override
     public String toString() {
         return "%s%c(%d)".formatted(face, switch(suit) {
-            case CLUB -> '\u2663';
-            case DIAMOND -> '\u2666';
-            case HEART -> '\u2665';
-            case SPADE -> '\u2660';
+            case CLUB -> '♣';
+            case DIAMOND -> '♦';
+            case HEART -> '♥';
+            case SPADE -> '♠';
         }, rank);
     }
 }
