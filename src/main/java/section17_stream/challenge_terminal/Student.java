@@ -1,9 +1,7 @@
 package section17_stream.challenge_terminal;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Student {
 
@@ -110,24 +108,34 @@ public class Student {
         return data[random.nextInt(data.length)];
     }
 
+    private static Course[] getRandomSelection(Course... courses) {
+
+        int courseCount = random.nextInt(1, courses.length + 1);
+        List<Course> courseList = new ArrayList<>(Arrays.asList(courses));
+        Collections.shuffle(courseList);
+        List<Course> selectedCourses = courseList.subList(0, courseCount);
+        return selectedCourses.toArray(new Course[0]);
+    }
+
     public static Student getRandomStudent(Course... courses) {
 
         int maxYear = LocalDate.now().getYear() + 1;
+        Course[] randomCourses = getRandomSelection(courses);
         Student student = new Student(
                 getRandomVal("AU", "USA", "JP", "KR", "UK", "GR"),
                 random.nextInt(2015, maxYear),
-                random.nextInt(18, 40),
+                random.nextInt(18, 70),
                 getRandomVal("M", "F"),
                 random.nextBoolean(),
-                courses
+                randomCourses
         );
 
-        for (Course course : courses) {
+        for (Course course : randomCourses) {
             int year = random.nextInt(student.getYearEnrolled(), maxYear);
             int month = random.nextInt(1, 13);
             student.watchLecture(
                     course.courseCode(),
-                    random.nextInt(1, course.lectureCount()),
+                    random.nextInt(30, course.lectureCount()),
                     (year == maxYear - 1) && (month > LocalDate.now().getMonthValue()) ?
                     LocalDate.now().getMonthValue() : month,
                     year
